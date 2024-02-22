@@ -3,17 +3,17 @@
     /* Configuration */
     --bullet-color: red;
     --border-color: #ebebeb;
-    --background-item: #f7f7f7;
+    --background-item: #fcfcfc;
 
     /* font title configuration */
     --min-size:1.2rem;
     --max-size:1.4rem;
-    --color: white;
+    --color: #666;
     --weight:400;
     --title-case: normal;
 
     /* font questions configuration */
-    --color-questions:#e0e1f0;
+    --color-questions:#888;
     --line-height: 1.6rem;
 }
 

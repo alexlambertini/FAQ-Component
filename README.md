@@ -151,3 +151,5 @@ Você também pode implementer uma grade usando a classe faq por fora.
 </div>
 ```
 
+**OBS:**
+Para vê-lo em ação você vai precisar estar em um live-server.
