@@ -9,7 +9,7 @@ Ele permite uma fácil importação e configuração, garantindo uma experiênci
 Você deve importar o arquivo lib.js no cabeçalho HTML como modulo, atributo ```type="module"``` para garantir o funcionamento adequado do componente.
 Não se esqueça de usar ```defer``` para garantir que seu código seja carregado após o componente:
 
-```
+```html
 <script type="module" src="path/lib.js" defer></script>
 ```
 
@@ -24,15 +24,15 @@ static
 Se o local dos arquivos for diferente, você precisará ajustar o caminho do CSS dentro do arquivo faq-component.js:
 O caminho deve ser absoluto, ele deve indicar o local do seu HTML:
 
-`
+```js
 loadCss('static/scripts/faq/faq.component.css');
-`
+```
 
 Além disso, certifique-se de atualizar as importações no arquivo lib.js:
 
-`
+```js
 import { FaqComponent, FaqItem } from "path/faq/faq-component.js";
-`
+```
 
 
 # Agora é simples!
@@ -43,7 +43,7 @@ Para garantir uma boa semântica em seu HTML, é recomendável usar títulos seg
 
 O **CSS** de fácil customização:
 
-```
+```css
 /* Configuration */
 --bullet-color: #e0e1f0;
 --border-color: #2b2e52;
@@ -81,7 +81,7 @@ Exemplo de estrutura do componente:
 **Exemplo:**
 
 
-```
+```html
 <faq-component>
 
     <faq-item>
@@ -101,7 +101,7 @@ Você também pode implementer uma grade usando a classe faq por fora.
 **Exemplo:**
 
 
-```
+```html
 <div class="faq">
 
     <faq-component>
