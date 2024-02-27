@@ -31,17 +31,21 @@ export class FaqItem extends HTMLElement {
                     gap:1rem;
                 }
 
-                div.button {
+                button {
                     padding: 0 20px 0 12px ;
                     position: relative;
                     margin: 0 auto;
                     margin-top:3px;
                     cursor: pointer;
-                    
-       
+                    background: transparent;
+                    border:0;
                   }
-                  
-                  div.button div.line {
+
+                button:focus {
+                    outline: 2px solid #cacaca;
+                }
+
+                button div.line {
                     width: 3px;
                     height: 15px;
                     background-color: var(--bullet-color) ;
@@ -50,38 +54,37 @@ export class FaqItem extends HTMLElement {
                     position: absolute;
                     top: 0;
                     transition: all 0.2s cubic-bezier(.87, .39, .74, 1.31);
-                  }
+                }
                   
-                  div.button div.line.left {
+                button div.line.left {
                     -webkit-transform: rotateZ(-45deg);
                     transform: rotateZ(-45deg);
                     left: 15px;
-                  }
+                }
                   
-                  div.button div.line.right {
+                button div.line.right {
                     -webkit-transform: rotateZ(45deg);
                     transform: rotateZ(45deg);
                     left: 15px;
-                  }
+                }
                   
-                  div.button.open div.line.left {
+                button.open div.line.left {
                     left: 10px;
-                  }
+                }
                   
-                  div.button.open div.line.right {
+                button.open div.line.right {
                     left: 19px;
-                    
-                  }
+                }
 
             </style>
 
             <div class="faq__content">
-                <div class="button open">
+                <button class="button open" aria-expanded="false" aria-controls="faqcontent" aria-label="Abrir e fechar" >
                     <div class="line left"></div>
                     <div class="line right"></div>
-                </div>
+                </button>
 
-                <div>
+                <div id="faqcontent">
                     <slot></slot>
                 </div>
             </div>            
@@ -91,10 +94,13 @@ export class FaqItem extends HTMLElement {
         const content = template.content.cloneNode(true);
         shadow.appendChild(content);
 
-        const button = shadow.querySelector('.button');
 
         this.addEventListener('click', () => {
+            const button = this.shadowRoot.querySelector('.button');         
             button.classList.toggle('open');
+        
+            const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+            button.setAttribute('aria-expanded', !expanded);
         });
     }
 }
